@@ -8,15 +8,16 @@
 <h1>Currency Calculator</h1>
 
 <?php
-// var_dump($_GET);
-$inputForeignCurrency = $_GET["currencyForeignInput"];
+$inputDollarCurrency = $_POST["currencyForeignInput"];
+$inputEuroCurrency = ($inputDollarCurrency / 100) * 88;
+echo $inputDollarCurrency;
 ?>
 
-<form action="" method="get">
-    <label for="currencyForeign">Local currency</label><br>
+<form action="" method="post">
+    <label for="currencyForeign">Dollar</label><br>
     <input type="text" id="currencyForeign" name="currencyForeignInput"><br>
     <label for="currencyEuro">Euro</label><br>
-    <input type="text" id="currencyEuro" name="currencyEuroInput" disabled><br><br>
+    <input type="text" id="currencyEuro" name="currencyEuroInput" value="<?php echo $inputEuroCurrency ?>" disabled><br><br>
     <input type="submit" value="Submit">
 </form>
 </body>
